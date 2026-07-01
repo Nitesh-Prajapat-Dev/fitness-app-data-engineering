@@ -1,38 +1,71 @@
-# Fitness Data Engineering Project
+# 🏋️ Fitness Data Engineering Project
 
-## Project Overview
+An End-to-End Azure Data Engineering Project implementing the **Medallion Architecture (Bronze → Silver → Gold)** for Fitness Data Analytics using Azure services, Databricks, PySpark, Delta Lake, Azure Data Factory and Power BI.
 
-This project demonstrates an end-to-end Azure Data Engineering pipeline for fitness data analytics using the Medallion Architecture (Bronze, Silver and Gold).
+---
 
-## Tech Stack
+# 🚀 Tech Stack
 
-- Azure Data Lake Storage Gen2
-- Azure Databricks
-- Azure Data Factory
-- PySpark
-- Delta Lake
-- Power BI
-- GitHub
+| Technology | Purpose |
+|------------|---------|
+| Azure Data Lake Storage Gen2 | Data Storage |
+| Azure Data Factory | Data Orchestration |
+| Azure Databricks | Data Processing |
+| PySpark | Data Transformation |
+| Delta Lake | Storage Format |
+| Power BI | Dashboard & Visualization |
+| GitHub | Version Control |
 
-## Architecture
+---
 
-CSV Files
-↓
-ADLS Landing
-↓
-ADF Pipeline
-↓
-Bronze Layer
-↓
-Silver Layer
-↓
-Gold Layer
-↓
-Power BI Dashboard
+# 📌 Project Architecture
 
-## Dataset
+![Architecture](images/architecture.png)
 
-The project contains:
+---
+
+# 📂 Project Structure
+
+```
+Fitness-App-Data-Engineering
+│
+├── datasets
+│   ├── users.csv
+│   ├── daily_steps.csv
+│   ├── workouts.csv
+│   ├── heart_rate.csv
+│   ├── diet_logs.csv
+│   └── sleep_logs.csv
+│
+├── scripts
+│   └── dataset_generator.py
+│
+├── notebooks
+│   ├── 01_Bronze.py
+│   ├── 02_Silver.py
+│   └── 03_Gold.py
+│
+├── powerbi
+│   └── Fitness_Dashboard.pbix
+│
+├── images
+│   ├── architecture.png
+│   ├── adls.png
+│   ├── adf_pipeline.png
+│   ├── bronze_tables.png
+│   ├── gold_table.png
+│   └── powerbi_dashboard.png
+│
+├── README.md
+├── requirements.txt
+└── .gitignore
+```
+
+---
+
+# 📊 Dataset
+
+The project contains the following datasets:
 
 - Users
 - Daily Steps
@@ -41,48 +74,181 @@ The project contains:
 - Diet Logs
 - Sleep Logs
 
-## Bronze Layer
+---
 
-- Reads raw CSV files from ADLS
-- Stores raw data into Delta tables
+# 🗂 Azure Data Lake Storage
 
-## Silver Layer
+Raw CSV files are uploaded into Azure Data Lake Storage Gen2.
 
-- Removes duplicate records
-- Handles null values
-- Filters invalid records
-- Performs data validation
+### Storage Structure
 
-## Gold Layer
+```
+landing/
+gold/
+```
 
-Business KPIs:
+### Screenshot
+
+![ADLS](images/adls.png)
+
+---
+
+# ⚙ Azure Data Factory Pipeline
+
+Azure Data Factory orchestrates the complete ETL pipeline.
+
+Pipeline Flow
+
+```
+CSV Files
+      ↓
+Landing
+      ↓
+Bronze
+      ↓
+Silver
+      ↓
+Gold
+```
+
+### Screenshot
+
+![ADF](images/adf_pipeline.png)
+
+---
+
+# 🥉 Bronze Layer
+
+### Tasks Performed
+
+- Read Raw CSV Files
+- Schema Inference
+- Delta Table Creation
+- Data Ingestion
+
+### Screenshot
+
+![Bronze](images/bronze_tables.png)
+
+---
+
+# 🥈 Silver Layer
+
+### Data Cleaning
+
+- Removed Duplicate Records
+- Removed Invalid Values
+- Handled Missing Values
+- Standardized Data Types
+
+---
+
+# 🥇 Gold Layer
+
+Business-ready data is generated for reporting.
+
+Generated KPIs
 
 - Average Daily Steps
 - Average Sleep Hours
 - Average Calories Intake
-- Total Workout Duration
 - Average Heart Rate
+- Total Workout Duration
 
-## Dashboard
+### Screenshot
 
-Power BI dashboard includes:
+![Gold](images/gold_table.png)
 
-- Total Users
-- Average Steps
-- Average Sleep
-- Average Calories
-- Gender Distribution
-- User Health Summary
+---
 
-## Project Structure
+# 📈 Power BI Dashboard
+
+Interactive dashboard includes
+
+✅ Total Users
+
+✅ Average Steps
+
+✅ Average Sleep Hours
+
+✅ Average Calories
+
+✅ Gender Distribution
+
+✅ User Health Summary
+
+### Dashboard
+
+![Dashboard](images/powerbi_dashboard.png)
+
+---
+
+# 🔄 ETL Workflow
 
 ```
-Fitness-App-Data-Engineering
-│
-├── datasets
-├── notebooks
-├── scripts
-├── README.md
-├── requirements.txt
-└── .gitignore
+CSV Files
+     │
+     ▼
+Azure Data Lake Storage
+     │
+     ▼
+Azure Data Factory
+     │
+     ▼
+Databricks Bronze Layer
+     │
+     ▼
+Databricks Silver Layer
+     │
+     ▼
+Databricks Gold Layer
+     │
+     ▼
+Power BI Dashboard
 ```
+
+---
+
+# 📌 Business Insights
+
+- User Activity Analysis
+- Sleep Pattern Analysis
+- Calories Consumption Analysis
+- Workout Performance
+- Gender-wise Fitness Comparison
+
+---
+
+# ▶ How to Run
+
+1. Generate datasets using `dataset_generator.py`
+2. Upload CSV files to Azure Data Lake Storage.
+3. Execute Bronze Notebook.
+4. Execute Silver Notebook.
+5. Execute Gold Notebook.
+6. Trigger Azure Data Factory Pipeline.
+7. Open Power BI Dashboard.
+
+---
+
+# 📷 Project Screenshots
+
+| Module | Screenshot |
+|----------|------------|
+| Azure Data Lake | ✅ |
+| Azure Data Factory | ✅ |
+| Databricks Bronze | ✅ |
+| Databricks Gold | ✅ |
+| Power BI Dashboard | ✅ |
+
+---
+
+# 👨‍💻 Author
+
+Nitesh Prajapat
+
+B.Tech CSE (Data Engineering Project)
+
+---
+
+# ⭐ If you like this project, give it a Star.
